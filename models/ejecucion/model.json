@@ -1,0 +1,141 @@
+{
+    "name": "ejecucion",
+    "locale": "es",
+    "cubes": [
+        {
+            "name": "ejecucion",
+            "measures": {
+                "credito_vigente": { "label": "Credito Vigente"}
+            },
+            "dimensions": ["caracter", "jurisdiccion", "saf", "programa", "fecha"],
+            "mappings": {
+		"fecha.year": {"column":"fecha", "extract":"year"},
+	  	"fecha.month": {"column":"fecha", "extract":"month"},
+	  	"fecha.week": {"column":"fecha", "extract":"week"},
+	  	"fecha.day": {"column":"fecha", "extract":"day"}
+	    },
+            "joins": [
+                { "master": "caracter_id", "detail":"caracter.id" },
+                { "master": "jurisdiccion_id", "detail":"jurisdiccion.id" },
+                { "master": "saf_id", "detail":"saf.id" },
+                { "master": "programa_id", "detail":"programa.id" }
+            ]
+        }
+    ],
+    "dimensions": [
+         {
+            "name": "date_base_full",
+            "label": "Date Base Full",
+            "info": {
+                "cv-datefilter": true,
+                "cv-datefilter-hierarchy": "daily"
+            },
+            "levels": [
+                {
+                    "name":"year",
+                    "label":"Year",
+                    "info": { "cv-datefilter-field": "year" }
+                },
+                {
+                    "name":"month",
+                    "label":"Month",
+                    "info": { "cv-datefilter-field": "month" }
+                },
+                {
+                    "name":"week",
+                    "label":"Week",
+                    "info": { "cv-datefilter-field": "week" }
+                },
+                {
+                    "name":"day",
+                    "label":"Day",
+                    "info": { "cv-datefilter-field": "day" }
+                }
+            ],
+            "hierarchies": [
+                {
+                    "name": "weekly",
+                    "label": "Weekly",
+                    "levels": [ "year", "week"]
+                },
+                {
+                    "name": "monthly",
+                    "label": "Montly",
+                    "levels": [ "year", "month"]
+
+                },
+                {
+                    "name": "daily",
+                    "label": "Daily",
+                    "levels": [ "year", "month", "day"]
+                },
+                {
+                    "name": "_compare_monthly",
+                    "label": "Field: Month",
+                    "levels": [ "month"]
+                }
+            ]
+        },
+        {
+            "name": "fecha",
+            "label": "Fecha",
+            "template": "date_base_full"
+        },
+        {
+            "name": "caracter",
+            "label": "Caracter",
+            "levels": [
+                {
+                    "name": "caracter",
+                    "label_attribute": "nombre",
+                    "attributes": [
+                        { "name": "nombre" },
+                        { "name": "id" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "jurisdiccion",
+            "label": "Jurisdiccion",
+            "levels": [
+                {
+                    "name": "jurisdiccion",
+                    "label_attribute": "nombre",
+                    "attributes": [
+                        { "name": "nombre" },
+                        { "name": "id" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "saf",
+            "label": "SAF",
+            "levels": [
+                {
+                    "name": "saf",
+                    "label_attribute": "nombre",
+                    "attributes": [
+                        { "name": "nombre" },
+                        { "name": "id" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "programa",
+            "label": "programa",
+            "levels": [
+                {
+                    "name": "programa",
+                    "label_attribute": "nombre",
+                    "attributes": [
+                        { "name": "nombre" },
+                        { "name": "id" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
