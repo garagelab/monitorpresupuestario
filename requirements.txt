@@ -1,9 +1,22 @@
-unicodecsv
-dataset
-pytz
-python-dateutil
-jsonschema
--e git+https://github.com/Stiivi/cubes.git#egg=cubes
-werkzeug
-psycopg2
-flask
+Flask==0.10.1
+Jinja2==2.7.2
+Mako==0.9.1
+MarkupSafe==0.19
+PyYAML==3.11
+SQLAlchemy==0.9.4
+Unidecode==0.04.14
+Werkzeug==0.9.4
+alembic==0.6.4
+-e git+https://github.com/Stiivi/cubes.git@4716f93f1d3f4405640d2988560896c10ce57941#egg=cubes-master
+dataset==0.5.2
+gnureadline==6.2.5
+ipython==2.0.0
+itsdangerous==0.24
+jsonschema==2.3.0
+psycopg2==2.5.2
+python-dateutil==2.2
+python-slugify==0.0.7
+pytz==2014.2
+six==1.6.1
+unicodecsv==0.9.4
+wsgiref==0.1.2
