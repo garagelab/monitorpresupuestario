@@ -60,7 +60,7 @@
                 },
                 {
                     "name": "monthly",
-                    "label": "Montly",
+                    "label": "Monthly",
                     "levels": [ "year", "month"]
 
                 },
