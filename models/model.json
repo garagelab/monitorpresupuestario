@@ -1,0 +1,21 @@
+{
+    "cubes": [
+        {
+            "name": "ejecucion",
+            "dimensions": ["caracter", "jurisdiccion", "saf", "programa"],
+            "joins": [
+                { "master": "caracter_id", "detail":"caracter.id" },
+                { "master": "jurisdiccion_id", "detail":"jurisdiccion.id" },
+                { "master": "saf_id", "detail":"saf.id" },
+                { "master": "programa_id", "detail":"programa.id" }
+            ]
+        }
+    ],
+    "dimensions": [
+        { "name": "caracter", "attributes": ["nombre"] },
+        { "name": "jurisdiccion", "attributes": ["nombre"] },
+        { "name": "saf", "attributes": ["nombre"] },
+        { "name": "programa", "attributes": ["nombre"] },
+        { "name": "fecha" }
+    ]
+}

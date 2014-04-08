@@ -1,0 +1,9 @@
+unicodecsv
+dataset
+pytz
+python-dateutil
+jsonschema
+-e git+https://github.com/Stiivi/cubes.git#egg=cubes
+werkzeug
+psycopg2
+flask
